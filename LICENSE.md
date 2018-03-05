@@ -1,6 +1,6 @@
 #### MIT License
 
-Copyright (c) 2017 Stefanie Krügel and Alessandra R. Brazzale and Helmut Küchenhoff
+Copyright (c) 2017 Stefanie Krügel, Alessandra R. Brazzale, Helmut Küchenhoff
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
