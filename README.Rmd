@@ -1,0 +1,49 @@
+---
+output:
+  md_document:
+    variant: markdown_github
+---
+
+CPsurv provides a function 'cpsurv' for estimating the changepoint in an L-shaped hazard rate of survival data, where a declining hazard rate is assumed until the change point and a constant hazard rate after the change point. Estimation is based on p-values for testing the null-hypothesis of a specific hazard rate in time intervals of an appropriate length and a regression to this p-values.
+
+### Installing the package
+CPsurv is published on CRAN, so you can use 
+```{r, eval=FALSE}
+install.packages("CPsurv")
+```
+to install the package.
+
+
+### Getting started
+Here's a short demo how to estimate the change point of the example lifetime data which are included in CPsurv.
+
+```{r}
+library(CPsurv)
+data("survdata")
+
+cp <- cpsurv(time = survdata$time, event = survdata$event, cpmax = 360, intwd = 20,
+             censoring = "random", boot.ci = TRUE)
+```
+We choose a value for 'cpmax' of 360. That means we expect the change point to be within the first year. 'intwd' is a tuning parameter, which has to be chosen appropriate based on given graphical tools (plot.cpsurv).
+
+Now we can check the summary and use the plot function.
+
+```{r}
+summary(cp)
+plot(cp, ask = FALSE)
+```
+
+By means of the plot of p-values you can check, if the regression line has an appropriate adjustment to the p-values. Otherwise you could try different grid length. But you have to take care about the number of events within one interval (check the barplot). If you choose a small interval length, it's possible that there are too low or even no events within an interval.  
+Within the first phase we assume a high mortality rate which means a high number of events within one interval. But if only a few of these intervals contain a small number of events, caused by a too small interval width, the estimated change point is biased downwards. 
+
+### Current status
+
+CPsurv is fully functional and a simulation study was done based on this package. But it's still young. So if you find some bugs please email me. 
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
