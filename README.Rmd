@@ -13,6 +13,12 @@ install.packages("CPsurv")
 ```
 to install the package.
 
+Installation from GitHub is done by
+
+```
+devtools::install_github("stefkruegel/CPsurv")
+```
+
 
 ### Getting started
 Here's a short demo how to estimate the change point of the example lifetime data which are included in CPsurv.
