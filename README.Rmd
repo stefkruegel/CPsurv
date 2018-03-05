@@ -39,11 +39,3 @@ Within the first phase we assume a high mortality rate which means a high number
 ### Current status
 
 CPsurv is fully functional and a simulation study was done based on this package. But it's still young. So if you find some bugs please email me. 
-
-```
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "README-"
-)
-```
